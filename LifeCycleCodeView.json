@@ -1,0 +1,37 @@
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "ruleFoo",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "tierToCool": {
+                            "daysAfterModificationGreaterThan": 30
+                        },
+                        "tierToArchive": {
+                            "daysAfterModificationGreaterThan": 90
+                        },
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 2555
+                        }
+                    },
+                    "snapshot": {
+                        "delete": {
+                            "daysAfterCreationGreaterThan": 90
+                        }
+                    }
+                },
+                "filters": {
+                    "blobTypes": [
+                        "blockBlob"
+                    ],
+                    "prefixMatch": [
+                        "container1/foo"
+                    ]
+                }
+            }
+        }
+    ]
+}
